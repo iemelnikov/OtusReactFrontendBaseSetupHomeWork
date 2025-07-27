@@ -58,13 +58,16 @@ const ApiFetcherComponent: React.FC<ApiFetcherProps> = (props) => {
       <h1>API Fetcher</h1>
       <div className="api-fetcher-container">
         <div className="input-group">
+          <label htmlFor="api-url" className="url-label">API url:</label>
           <input
             type="text"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             className="url-input"
+            id="api-url"
           />
           <button
+            type="button"
             onClick={fetchData}
             className="fetch-button"
             disabled={isLoading}
@@ -72,7 +75,7 @@ const ApiFetcherComponent: React.FC<ApiFetcherProps> = (props) => {
             {isLoading ? 'Загрузка...' : 'Запросить данные'}
           </button>
         </div>
-        {result.resultData && <ResultBoxComponent {...result} />}
+        {result.resultData !== null && <ResultBoxComponent {...result} />}
       </div>
     </>
   );

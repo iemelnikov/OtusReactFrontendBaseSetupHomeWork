@@ -2,7 +2,7 @@ import './ResultBoxComponent.css';
 
 export interface ResultBoxProps {
   isError?: boolean;
-  resultData: any;
+  resultData: any | string;
 }
 
 const ResultBoxComponent: React.FC<ResultBoxProps> = (props) => {
