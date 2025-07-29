@@ -17,6 +17,14 @@ const ApiFetcherComponent: React.FC<ApiFetcherProps> = (props) => {
 
   const fetchData = async () => {
     setLoading(true);
+    if (!url || url.trim() === '') {
+      setResult({
+        isError: true,
+        resultData: 'Пустой url'
+      });
+      setLoading(false);
+      return;
+    }
     try {
       const response = await axios.get(url, {
         validateStatus: (status) => status >= 200 && status < 300,

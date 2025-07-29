@@ -7,11 +7,9 @@ export interface ResultBoxProps {
 
 const ResultBoxComponent: React.FC<ResultBoxProps> = (props) => {
   return (
-    <>
-      <div className={props.isError ? "error-box" : "response-box"}>
-        <pre>{props.isError ? props.resultData : JSON.stringify(props.resultData, null, 2)}</pre>
-      </div>
-    </>
+    <div className={props.isError ? "error-box" : "response-box"}>
+      <pre>{props.isError ? props.resultData : JSON.stringify(props.resultData, null, 2)}</pre>
+    </div>
   );
 };
 
